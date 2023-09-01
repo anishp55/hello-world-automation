@@ -24,5 +24,6 @@ jobs:
           action: deploy
           service-name: asa-e-si-02
           app-name: hello-world
+          runtime-version: Java_17
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}
