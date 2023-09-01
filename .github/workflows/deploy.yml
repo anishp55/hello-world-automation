@@ -2,7 +2,7 @@ name: AzureSpringApps
 on: push
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
-  AZURE_SUBSCRIPTION: <azure subscription name>
+  AZURE_SUBSCRIPTION: 5c6097b3-0798-4146-8d81-1e3ef0686c2d
 
 jobs:
   deploy_to_production:
@@ -22,7 +22,7 @@ jobs:
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: deploy
-          service-name: <service instance name>
-          app-name: <app name>
+          service-name: asa-e-si-02
+          app-name: hello-world
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}
