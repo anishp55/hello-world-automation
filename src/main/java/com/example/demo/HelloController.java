@@ -8,6 +8,6 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello from Azure Spring Apps Enterprise\n";
+        return "Hello from Azure Spring Apps this app has been changes\n";
     }
 }
