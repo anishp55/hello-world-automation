@@ -23,7 +23,7 @@ jobs:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: deploy
           service-name: asa-e-si-02
-          app-name: hello-world
+          app-name: hello-world-prod
           runtime-version: Java_17
           build-env: -BP_JVM_VERSION 17
           use-staging-deployment: false
