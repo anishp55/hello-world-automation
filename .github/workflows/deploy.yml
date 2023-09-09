@@ -26,5 +26,6 @@ jobs:
           app-name: hello-world-prod
           runtime-version: Java_17
           build-env: -BP_JVM_VERSION 17
+          environment-variables: -env prod
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}
