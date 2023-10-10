@@ -14,10 +14,10 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello() {
         String value = "Hello from Azure Spring Apps, today is a greay day";
-        if (environment.getProperty("env") == null)
-            return value;
-        else
-            return value + " " + environment.getProperty("env");
-            
+        if (environment.getProperty("env") != null)
+            value+= " " + environment.getProperty("env");
+        
+        return value;
+
     }
 }
