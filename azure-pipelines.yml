@@ -24,9 +24,9 @@ steps:
   inputs:
     azureSubscription: 'anish-patel-playground(1)(5c6097b3-0798-4146-8d81-1e3ef0686c2d)'
     Action: 'Deploy'
-    AzureSpringCloud: '/subscriptions/5c6097b3-0798-4146-8d81-1e3ef0686c2d/resourceGroups/asa-e-rg-01/providers/Microsoft.AppPlatform/Spring/asa-e-si-01'
+    AzureSpringCloud: '/subscriptions/5c6097b3-0798-4146-8d81-1e3ef0686c2d/resourceGroups/asa-e-rg-01/providers/Microsoft.AppPlatform/Spring/asa-e-si-02'
     AppName: 'hello-world'
     UseStagingDeployment: false
-    Builder: '/subscriptions/5c6097b3-0798-4146-8d81-1e3ef0686c2d/resourceGroups/asa-e-rg-01/providers/Microsoft.AppPlatform/Spring/asa-e-si-01/buildServices/default/builders/java-test-builder'
+    Builder: '/subscriptions/5c6097b3-0798-4146-8d81-1e3ef0686c2d/resourceGroups/asa-e-rg-01/providers/Microsoft.AppPlatform/Spring/asa-e-si-02/buildServices/default/builders/default'
     RuntimeVersion: 'Java_17'
     DeploymentName: default
