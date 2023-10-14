@@ -28,3 +28,4 @@ steps:
       az extension add --name spring
       az version
       ls -alFhrt
+      az spring build-service build update -n hello-world -s asa-e-si-01 -g asa-e-rg-01 --source-path . --build-env BP_JVM_VERSION=17
