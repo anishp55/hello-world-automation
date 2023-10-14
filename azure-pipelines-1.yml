@@ -15,7 +15,7 @@ steps:
 
 - script: |
     ls -alFhrt
-    az account list
+    pwd
   displayName: 'Run a multi-line script'
 
 
@@ -26,4 +26,5 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az extension add --name spring
+      az version
       ls -alFhrt
