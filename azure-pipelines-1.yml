@@ -32,7 +32,7 @@ steps:
     RegistryServer: $(REGISTRY)
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
-    ImageName: 'result'      
+    ImageName: $(IMG_NAME)
 # - task: AzureSpringCloud@0
 #   inputs:
 #     azureSubscription: 'anish-patel-playground(5c6097b3-0798-4146-8d81-1e3ef0686c2d)'
