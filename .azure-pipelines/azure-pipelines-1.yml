@@ -9,7 +9,7 @@ resources:
       source: build
  
 trigger:
-- none
+- main
 
 pool:
   vmImage: ubuntu-latest
