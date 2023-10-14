@@ -25,5 +25,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      az account list -o table
-      pwd
+      az extension add --name spring
+      ls -alFhrt
