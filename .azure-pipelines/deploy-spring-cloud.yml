@@ -26,4 +26,4 @@ steps:
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
     ImageName: $(IMG_NAME)
-    EnvironmentVariables: "-env deployed from ado"
+    EnvironmentVariables: "-env deployed\ from\ ado"
