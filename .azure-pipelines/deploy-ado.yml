@@ -5,8 +5,15 @@ resources:
 
 trigger: none
 
+parameters:
+  - name: APP
+    type: string
+    default: hello-world-ado
+
 variables:
   - group: 'hello-world'
+  - name: APP
+    value: ${{ parameters.APP }}
 
 pool:
   vmImage: ubuntu-latest
@@ -21,9 +28,9 @@ steps:
     AppName: $(APP)
     DeploymentType: CustomContainer
     UseStagingDeployment: false
-    DeploymentName: 'default'
-    RegistryServer: 'akptest.azurecr.io'
+    DeploymentName: default
+    RegistryServer: $(REGISTRY)
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
     ImageName: $(IMG_NAME)
-    EnvironmentVariables: "-env=deployed\ from\ ado"
+    EnvironmentVariables: -env "deployed from ado"
