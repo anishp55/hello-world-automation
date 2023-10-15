@@ -5,6 +5,9 @@ resources:
 
 trigger: none
 
+variables:
+  - group: 'hello-world'
+
 pool:
   vmImage: ubuntu-latest
 
