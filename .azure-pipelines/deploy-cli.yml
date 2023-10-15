@@ -13,7 +13,7 @@ pool:
 
 steps:
 - task: AzureCLI@2
-  displayName: 'Build $(APP) from source'
+  displayName: 'deploy $(APP) from registry'
   inputs:
     azureSubscription: 'anish-patel-playground(5c6097b3-0798-4146-8d81-1e3ef0686c2d)'
     scriptType: 'bash'
@@ -21,4 +21,4 @@ steps:
     arguments: $(APP) $(BUILD_SI) $(DEPLOY_SI) $(GROUP) $(IMG_NAME) $(REG_PASSWD) $(REG_USER) $(REGISTRY)
     inlineScript: |
       az extension add --name spring
-      az spring app deploy -n $(APP) -s $(DEPLOY_SI) -g $(GROUP) --container-image $(IMG_NAME) --container-registry $(REGISTRY) --registry-password $(REG_PASSWD) --registry-username $(REG_USER)  --env "env=deployed from ado" 
+      az spring app deploy -n $(APP) -s $(DEPLOY_SI) -g $(GROUP) --container-image $(IMG_NAME) --container-registry $(REGISTRY) --registry-password $(REG_PASSWD) --registry-username $(REG_USER)  --env "env=deployed from cli" 
