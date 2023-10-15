@@ -7,12 +7,7 @@ trigger: none
 
 variables:
   - group: 'hello-world'
-  - name: REGISTRY
-    value: $[variables.REGISTRY]
-  - name: REG_USER
-    value: $[variables.REG_USER]
-  - name: REG_PASSWD
-    value: $[variables.REG_PASSWD]
+
 pool:
   vmImage: ubuntu-latest
 
@@ -31,4 +26,3 @@ steps:
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
     ImageName: $(IMG_NAME)
-    EnvironmentVariables: "-env deployed\ from\ ado"
