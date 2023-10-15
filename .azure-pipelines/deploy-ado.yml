@@ -13,12 +13,12 @@ pool:
 
 steps:
 - task: AzureSpringCloud@0
-  displayName: 'Deploy $(APP) from image registry'
+  displayName: 'Deploy $(APP)-ado from image registry'
   inputs:
     azureSubscription: 'anish-patel-playground(5c6097b3-0798-4146-8d81-1e3ef0686c2d)'
     Action: 'Deploy'
     AzureSpringCloud: '/subscriptions/5c6097b3-0798-4146-8d81-1e3ef0686c2d/resourceGroups/asa-e-rg-01/providers/Microsoft.AppPlatform/Spring/asa-e-si-02'
-    AppName: $(APP)
+    AppName: $(APP)-ado
     DeploymentType: CustomContainer
     UseStagingDeployment: false
     DeploymentName: 'default'
@@ -26,3 +26,4 @@ steps:
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
     ImageName: $(IMG_NAME)
+    EnvironmentVariables: "-env depoyed\ from\ ado"
