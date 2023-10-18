@@ -8,7 +8,7 @@ trigger: none
 parameters:
   - name: APP
     type: string
-    default: hello-world
+    default: hello-world-prod
 
 variables:
   - group: 'hello-world'
