@@ -28,4 +28,4 @@ steps:
     arguments: $(APP) $(BUILD_SI) $(DEPLOY_SI) $(GROUP) $(IMG_NAME) $(REG_PASSWD) $(REG_USER) $(REGISTRY)
     inlineScript: |
       az extension add --name spring
-      az spring app deploy -n $(APP) -s $(DEPLOY_SI) -g $(GROUP) --container-image $(IMG_NAME) --container-registry $(REGISTRY) --registry-password $(REG_PASSWD) --registry-username $(REG_USER)  --env "env=deployed from cli" --debug
+      az spring app deploy -n $(APP) -s $(DEPLOY_SI) -g $(GROUP) --container-image $(IMG_NAME) --container-registry $(REGISTRY) --registry-password $(REG_PASSWD) --registry-username $(REG_USER)  --env "env=deployed from cli"
