@@ -3,12 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-resources:
-  pipelines:
-    - pipeline: scan
-      source: scan
+# resources:
+#   pipelines:
+#     - pipeline: scan
+#       source: scan
 
-trigger: none
+trigger:
+- main
 
 pool:
   vmImage: ubuntu-latest

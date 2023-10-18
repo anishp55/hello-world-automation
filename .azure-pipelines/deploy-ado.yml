@@ -5,15 +5,13 @@ resources:
 
 trigger: none
 
+variables:
+  - group: 'hello-world'
+
 parameters:
   - name: APP
     type: string
     default: hello-world-ado
-
-variables:
-  - group: 'hello-world'
-  - name: APP
-    value: ${{ parameters.APP }}
 
 pool:
   vmImage: ubuntu-latest
@@ -28,7 +26,7 @@ steps:
     AppName: $(APP)
     DeploymentType: CustomContainer
     UseStagingDeployment: false
-    DeploymentName: default
+    DeploymentName: 'default'
     RegistryServer: $(REGISTRY)
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
