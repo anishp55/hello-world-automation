@@ -13,7 +13,7 @@ public class HelloController {
     @Autowired private Environment environment;    
     @GetMapping("/hello")
     public String hello() {
-        String value = "Hello from Azure Spring Apps, today is a greay day";
+        String value = "Hello from Azure Spring Apps, today is a great day";
         if (environment.getProperty("env") != null)
             value+= " " + environment.getProperty("env");
         
