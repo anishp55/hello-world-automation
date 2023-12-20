@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @Autowired private Environment environment;    
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String hello() {
-        String value = "Hello from Azure Spring Apps, today is a great day";
+        String value = "Hello from TAP on AWS";
         if (environment.getProperty("env") != null)
-            value+= " " + environment.getProperty("env");
+            value+= " , today is a great day for" + environment.getProperty("env");
         
         return value;
 
