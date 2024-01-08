@@ -10,7 +10,7 @@ jobs:
     name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Login via Azure CLI
         uses: azure/login@v1
