@@ -15,9 +15,9 @@ public class HelloController {
     @Autowired private Environment environment;    
     @GetMapping("/")
     public String hello() {
-        String value = "Hello from ASAe on Azure";
+        String value = "Hello from TAP on AWS";
         if (environment.getProperty("env") != null)
-            value+= " , today is a great day for" + environment.getProperty("env");
+            value+= ", today is a great day for " + environment.getProperty("env");
             value+= "<br>"  + LocalTime.now();
         return value;
 
