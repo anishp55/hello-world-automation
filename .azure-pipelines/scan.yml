@@ -15,8 +15,18 @@ steps:
     inputs:
       languages: "java"
   
-  - task: AdvancedSecurity-Codeql-Autobuild@1
-  
+  # - task: AdvancedSecurity-Codeql-Autobuild@1
+
+  - task: Maven@4
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'clean package'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.17'
+      mavenVersionOption: 'Default'
+
   - task: AdvancedSecurity-Dependency-Scanning@1
   - task: AdvancedSecurity-Codeql-Analyze@1
 # steps:
