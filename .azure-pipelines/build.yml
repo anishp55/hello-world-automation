@@ -7,7 +7,6 @@ resources:
   pipelines:
     - pipeline: scan
       source: scan
-      trigger: true
 
 pool:
   vmImage: ubuntu-latest
