@@ -9,14 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-
 steps:
   - task: AdvancedSecurity-Codeql-Init@1
     inputs:
       languages: "java"
   
-  # - task: AdvancedSecurity-Codeql-Autobuild@1
-
   - task: Maven@4
     inputs:
       mavenPomFile: 'pom.xml'
