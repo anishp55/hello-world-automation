@@ -2,8 +2,7 @@ resources:
   pipelines:
     - pipeline: build
       source: build
-
-trigger: none
+      trigger: true
 
 parameters:
   - name: APP
