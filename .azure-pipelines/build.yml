@@ -40,7 +40,6 @@ steps:
     git config user.email pipeline@buildsh.it 
     git config user.name "Pipeline"
     git branch -r
-    git checkout main
-    # git add checksum
-    # git commit -m "new checksum"
-    # git push origin main
+    git add checksum
+    git commit -m "new checksum"
+    git push origin HEAD:refs/heads/main
