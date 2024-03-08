@@ -41,4 +41,4 @@ steps:
     git config user.name "Pipeline"
     git add checksum
     git commit -m "new checksum"
-    git push
+    git push origin main
