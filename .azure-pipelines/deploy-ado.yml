@@ -28,9 +28,6 @@ steps:
     CHECKSUM=`cat checksum`
     echo "##vso[task.setvariable variable=CHECKSUM]$CHECKSUM"
   displayName: get Checksum
-- script: |
-    echo $CHECKSUM
-  
 - task: AzureSpringCloud@0
   displayName: 'Deploy $(APP) from image registry'
   inputs:
@@ -44,6 +41,5 @@ steps:
     RegistryServer: $(REGISTRY)
     RegistryUsername: $(REG_USER)
     RegistryPassword: $(REG_PASSWD)
-    # ImageName: $(IMG_NAME)
-    ImageName: $(APP)@$(CHECKSUM)
+    ImageName: hello-world@$(CHECKSUM)
     EnvironmentVariables: -env "deploying from ado pipelines"
