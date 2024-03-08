@@ -18,6 +18,7 @@ pool:
 
 steps:
 - checkout: checksums
+  persistCredentials: true
 - checkout: self
 - task: AzureCLI@2
   displayName: 'Build $(APP) from source'
@@ -29,9 +30,12 @@ steps:
       pwd
       az config set core.no_color=true
       az extension add --name spring
-      az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path /home/vsts/work/1/s/hello-world --build-env BP_JVM_VERSION=17 | tee build.txt
+      az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path ./hello-world --build-env BP_JVM_VERSION=17 | tee build.txt
       export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
       python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > checksum
       cat checksum
-      cp checksum  /home/vsts/work/1/s/container-checksums
-      ls /home/vsts/work/1/s/container-checksums
+      cp checksum  ./container-checksums
+- script: |
+    git config --global user.email pipeline@buildsh.it & git config --global user.name "Pipeline"
+    cd ./container-checksums
+    git commit -a -m "new checksum"
