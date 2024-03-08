@@ -8,6 +8,8 @@ on:
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
   AZURE_SUBSCRIPTION: 5c6097b3-0798-4146-8d81-1e3ef0686c2d
+  REG_USER: ${{ vars.REG_USER }}
+  REG_PASSWD: ${{ secrets.REG_PASSWD}}
 
 jobs:
   deploy_to_production:
@@ -26,18 +28,18 @@ jobs:
         run: echo ${{ env.REG_USER }}
 
 
-      - name: Deploy custom container image
-        uses: Azure/spring-apps-deploy@v1
-        with:
-          azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
-          action: deploy
-          service-name: asa-e-si-02
-          app-name: hello-world-prod
-          deployment-name: default
-          container-registry: akptest.azurecr.io
-          registry-username: ${{ env.REG_USER }}
-          registry-password: ${{ secrets.REG_PASSWD}}
-          container-image: hello-world:result
+      # - name: Deploy custom container image
+      #   uses: Azure/spring-apps-deploy@v1
+      #   with:
+      #     azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
+      #     action: deploy
+      #     service-name: asa-e-si-02
+      #     app-name: hello-world-prod
+      #     deployment-name: default
+      #     container-registry: akptest.azurecr.io
+      #     registry-username: ${{ env.REG_USER }}
+      #     registry-password: ${{ secrets.REG_PASSWD}}
+      #     container-image: hello-world:result
 
       # - name: deploy to production step with source code
       #   uses: azure/spring-apps-deploy@v1
