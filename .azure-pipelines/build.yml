@@ -42,4 +42,3 @@ steps:
     git add checksum
     git commit -m "new checksum"
     git push origin HEAD:refs/heads/main
-  displayName: commit checksum
