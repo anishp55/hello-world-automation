@@ -20,26 +20,27 @@ steps:
 - checkout: checksums
   persistCredentials: true
 - checkout: self
-- task: AzureCLI@2
-  displayName: 'Build $(APP) from source'
-  inputs:
-    azureSubscription: 'anish-patel-playground(5c6097b3-0798-4146-8d81-1e3ef0686c2d)'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      pwd
-      az config set core.no_color=true
-      az extension add --name spring
-      az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path ./hello-world --build-env BP_JVM_VERSION=17 | tee build.txt
-      export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
-      python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > checksum
-      cat checksum
-      cp checksum  ./container-checksums
+# - task: AzureCLI@2
+#   displayName: 'Build $(APP) from source'
+#   inputs:
+#     azureSubscription: 'anish-patel-playground(5c6097b3-0798-4146-8d81-1e3ef0686c2d)'
+#     scriptType: 'bash'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       pwd
+#       az config set core.no_color=true
+#       az extension add --name spring
+#       az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path ./hello-world --build-env BP_JVM_VERSION=17 | tee build.txt
+#       export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
+#       python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > checksum
+#       cat checksum
+#       cp checksum  ./container-checksums
 - script: |
     cd ./container-checksums
     git config init.defaultBranch main
     git config user.email pipeline@buildsh.it 
     git config user.name "Pipeline"
+    echo "sha256:d09b1ee7e36a68de322729774f6264244dcaa76c06cbd8c7a4779adb460b8419" > checksum
     git add checksum
     git commit -m "new checksum"
     git push origin HEAD:refs/heads/main
