@@ -29,9 +29,9 @@ steps:
       pwd
       az config set core.no_color=true
       az extension add --name spring
-      az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path . --build-env BP_JVM_VERSION=17 | tee build.txt
+      az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path /home/vsts/work/1/s/hello-world --build-env BP_JVM_VERSION=17 | tee build.txt
       export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
       python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > checksum
       cat checksum
-      cp checksum  ../container-checksums
-      ls ../container-checksums
+      cp checksum  /home/vsts/work/1/s/container-checksums
+      ls /home/vsts/work/1/s/container-checksums
