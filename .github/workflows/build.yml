@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
         container-sha: ${{ steps.create-build.outputs.test}}
-    name: deploy to production with source code
+    name: build with source code
     steps:
       - name: Checkout GitHub Action
         uses: actions/checkout@v4
