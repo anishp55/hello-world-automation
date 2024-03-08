@@ -74,8 +74,7 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      inputs:
-        upload: never
-
       with:
+      inputs:
+          upload: never
         category: "/language:${{matrix.language}}"
