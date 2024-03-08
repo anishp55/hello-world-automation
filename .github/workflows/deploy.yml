@@ -35,17 +35,4 @@ jobs:
           container-registry: akptest.azurecr.io
           registry-username: ${{ env.REG_USER }}
           registry-password: ${{ secrets.REG_PASSWD}}
-          container-image: hello-world:result
-
-      # - name: deploy to production step with source code
-      #   uses: azure/spring-apps-deploy@v1
-      #   with:
-      #     azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
-      #     action: deploy
-      #     service-name: asa-e-si-02
-      #     app-name: hello-world-prod
-      #     runtime-version: Java_17
-      #     build-env: -BP_JVM_VERSION 17
-      #     environment-variables: -env prod
-      #     use-staging-deployment: false
-      #     package: ${{ env.ASC_PACKAGE_PATH }}
+          container-image: hello-world-gh:result

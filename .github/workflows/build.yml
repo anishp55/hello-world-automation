@@ -26,7 +26,7 @@ jobs:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: build
           service-name: asa-e-si-01
-          build-name: hello-world
+          build-name: hello-world-gh
           runtime-version: Java_17
           build-env: -BP_JVM_VERSION 17
           package: ${{ env.ASC_PACKAGE_PATH }}
