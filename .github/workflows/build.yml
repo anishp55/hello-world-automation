@@ -5,8 +5,10 @@ env:
   AZURE_SUBSCRIPTION: 5c6097b3-0798-4146-8d81-1e3ef0686c2d
 
 jobs:
-  deploy_to_production:
+  build:
     runs-on: ubuntu-latest
+    outputs:
+        container-sha: ${{ steps.create-build.outputs.test}}
     name: deploy to production with source code
     steps:
       - name: Checkout GitHub Action
@@ -18,6 +20,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Create/update build
+        id: create-build
         uses: azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
@@ -27,3 +30,10 @@ jobs:
           runtime-version: Java_17
           build-env: -BP_JVM_VERSION 17
           package: ${{ env.ASC_PACKAGE_PATH }}
+  checksum:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - env:
+          CHECKSUM: ${{needs.build.outputs.container-sha }}
+        run: echo $CHECKSUM
