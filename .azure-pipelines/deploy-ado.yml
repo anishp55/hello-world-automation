@@ -28,7 +28,7 @@ steps:
     CHECKSUM=`cat ./container-checksums/checksum`
     echo "##vso[task.setvariable variable=CHECKSUM]$CHECKSUM"
   displayName: get Checksum
--script: |
+- script: |
     echo $CHECKSUM
   
 # - task: AzureSpringCloud@0
