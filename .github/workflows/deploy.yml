@@ -21,9 +21,12 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+      - name: display values
+        run: echo ${{ env.REG_USER }}
+
 
       - name: Deploy custom container image
-        run: echo $CHECKSUM && cat $GITHUB_OUTPUT
         uses: Azure/spring-apps-deploy@v1
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
