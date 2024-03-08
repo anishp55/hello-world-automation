@@ -36,6 +36,9 @@ steps:
       cat checksum
       cp checksum  ./container-checksums
 - script: |
-    git config --global user.email pipeline@buildsh.it & git config --global user.name "Pipeline"
     cd ./container-checksums
-    git commit -a -m "new checksum"
+    git config user.email pipeline@buildsh.it 
+    git config user.name "Pipeline"
+    git add checksum
+    git commit -m "new checksum"
+    git push
