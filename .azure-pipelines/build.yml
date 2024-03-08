@@ -18,6 +18,7 @@ pool:
 
 steps:
 - checkout: checksums
+- checkout: self
 - task: AzureCLI@2
   displayName: 'Build $(APP) from source'
   inputs:
