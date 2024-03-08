@@ -9,6 +9,10 @@ resources:
       source: scan
       trigger: true
 
+  repositories:
+    - repository: container-checksums
+      type: git 
+      name: checksums
 pool:
   vmImage: ubuntu-latest
 
@@ -26,3 +30,5 @@ steps:
       export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
       python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > container-checksum
       cat container-checksum
+      cp container-checksum  ../checksums
+      ls ../checksums
