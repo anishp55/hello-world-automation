@@ -1,5 +1,10 @@
 name: AzureSpringAppsDeploy
-on: [workflow_dispatch]
+on:
+  workflow_run:
+    workflows: ["AzureSpringAppsBuild"]
+    types:
+      - completed
+
 env:
   ASC_PACKAGE_PATH: ${{ github.workspace }}
   AZURE_SUBSCRIPTION: 5c6097b3-0798-4146-8d81-1e3ef0686c2d
