@@ -36,4 +36,4 @@ jobs:
     steps:
       - env:
           CHECKSUM: ${{needs.build.outputs.container-sha }}
-        run: echo $CHECKSUM $GITHUB_OUTPUT
+        run: echo $CHECKSUM && cat $GITHUB_OUTPUT
