@@ -18,7 +18,7 @@ public class HelloController {
         String value = "Hello from ASAe on Azure";
         if (environment.getProperty("env") != null)
             value+= ", today is a great day for burrittos and " + environment.getProperty("env");
-            value+= "<br>"  + LocalTime.now();
+        value+= "<br>"  + LocalTime.now();
         return value;
 
     }
