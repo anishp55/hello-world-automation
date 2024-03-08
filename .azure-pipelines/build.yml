@@ -17,6 +17,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- checkout: checksums
 - task: AzureCLI@2
   displayName: 'Build $(APP) from source'
   inputs:
