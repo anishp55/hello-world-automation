@@ -29,7 +29,7 @@ steps:
       az extension add --name spring
       az spring build-service build update -n $(APP) -s $(BUILD_SI) -g $(GROUP) --source-path . --build-env BP_JVM_VERSION=17 | tee build.txt
       export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
-      python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > container-checksum
-      cat container-checksum
-      cp container-checksum  ../checksums
-      ls ../checksums
+      python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > -checksum
+      cat checksum
+      cp checksum  ../container-checksums
+      ls ../container-checksums
