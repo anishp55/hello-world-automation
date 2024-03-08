@@ -10,9 +10,9 @@ resources:
       trigger: true
 
   repositories:
-    - repository: container-checksums
+    - repository: checksums
       type: git 
-      name: checksums
+      name: hello-world/container-checksums
 pool:
   vmImage: ubuntu-latest
 
