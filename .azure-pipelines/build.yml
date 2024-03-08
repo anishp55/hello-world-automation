@@ -34,12 +34,12 @@ steps:
       export CHECKSUM=$( cat build.txt| grep Images | awk -F "(" '{print $2}' )   
       python3 -c 'import os; print(os.getenv("CHECKSUM").strip("):"))' > checksum
       cat checksum
+      cp checksum  ./container-checksums
 - script: |
     cd ./container-checksums
     git config user.email pipeline@buildsh.it 
     git config user.name "Pipeline"
-    git switch main 
-    cp ../hello-world/checksum .
+    git checkout main
     git add checksum
     git commit -m "new checksum"
     git push origin main
